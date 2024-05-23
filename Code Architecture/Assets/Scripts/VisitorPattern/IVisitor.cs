@@ -4,5 +4,7 @@
     {
         void Visit(HealthComponent healthComponent);
         void Visit(ManaComponent manaComponent);
+        void Visit(IntrusiveHealthComponent intrusiveHealthComponent);
+        void Visit(IntrusiveManaComponent intrusiveManaComponent);
     }    
 }
