@@ -2,9 +2,10 @@
 {
     public interface IVisitor
     {
-        void Visit(HealthComponent healthComponent);
-        void Visit(ManaComponent manaComponent);
-        void Visit(IntrusiveHealthComponent intrusiveHealthComponent);
-        void Visit(IntrusiveManaComponent intrusiveManaComponent);
-    }    
+        void Visit(object o);
+        //void Visit(HealthComponent healthComponent);
+        //void Visit(ManaComponent manaComponent);
+        // void Visit(IntrusiveHealthComponent intrusiveHealthComponent);
+        // void Visit(IntrusiveManaComponent intrusiveManaComponent);
+    }
 }

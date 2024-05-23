@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Reflection;
+using UnityEngine;
 
 namespace CodeArchitecture.Visitor
 {
@@ -8,26 +10,44 @@ namespace CodeArchitecture.Visitor
         public int healthBonus = 10;
         public int manaBonus = 10;
 
-        public void Visit(HealthComponent healthComponent)
+        public void Visit(object o)
         {
-            healthComponent.health += healthBonus;
-            Debug.Log("PowerUp.Visit(healthComponent)");
+            MethodInfo visitMethod = GetType().GetMethod("Visit", new Type[] { o.GetType() });
+            if (visitMethod != null && visitMethod != GetType().GetMethod("Visit", new Type[] { typeof(object) }))
+            {
+                visitMethod.Invoke(this, new object[] { o });
+            }
+            else
+            {
+                DefaultVisit(o);
+            }
         }
 
-        public void Visit(ManaComponent manaComponent)
+        void DefaultVisit(object o)
         {
-            manaComponent.mana += manaBonus;
-            Debug.Log("PowerUp.Visit(manaComponent)");
+            Debug.Log("PowerUp.DefaultVisit");
         }
 
-        public void Visit(IntrusiveHealthComponent intrusiveHealthComponent)
-        {
-            intrusiveHealthComponent.AddHealth(healthBonus);
-        }
+        // public void Visit(HealthComponent healthComponent)
+        // {
+        //     healthComponent.health += healthBonus;
+        //     Debug.Log("PowerUp.Visit(healthComponent)");
+        // }
 
-        public void Visit(IntrusiveManaComponent intrusiveManaComponent)
-        {
-            intrusiveManaComponent.AddMana(manaBonus);
-        }
+        // public void Visit(ManaComponent manaComponent)
+        // {
+        //     manaComponent.mana += manaBonus;
+        //     Debug.Log("PowerUp.Visit(manaComponent)");
+        // }
+
+        // public void Visit(IntrusiveHealthComponent intrusiveHealthComponent)
+        // {
+        //     intrusiveHealthComponent.AddHealth(healthBonus);
+        // }
+        //
+        // public void Visit(IntrusiveManaComponent intrusiveManaComponent)
+        // {
+        //     intrusiveManaComponent.AddMana(manaBonus);
+        // }
     }
 }
