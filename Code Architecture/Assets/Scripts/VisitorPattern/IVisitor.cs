@@ -2,6 +2,7 @@
 {
     public interface IVisitor
     {
-        void Visit(object o);
+        void Visit(IVisitable visitable);
+        void Visit<T>(IVisitable visitable, T value);
     }
 }

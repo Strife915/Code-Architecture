@@ -4,29 +4,48 @@ using UnityEngine;
 
 namespace CodeArchitecture.Visitor
 {
-    public class ReflectiveVisitor :   IVisitor
+    public class ReflectiveVisitor :  IVisitor
     {
-        public void Visit(object o)
+        public void Visit(IVisitable visitable)
         {
-            MethodInfo visitMethod = GetType().GetMethod("Visit", new Type[] { o.GetType() });
-            if (visitMethod != null && visitMethod != GetType().GetMethod("Visit", new Type[] { typeof(object) }))
+            MethodInfo visitMethod = GetType().GetMethod("Visit", new Type[] { visitable.GetType() });
+            if (visitMethod != null && visitMethod != GetType().GetMethod("Visit", new Type[] { typeof(IVisitable) }))
             {
-                visitMethod.Invoke(this, new object[] { o });
+                visitMethod.Invoke(this, new object[] { visitable });
             }
             else
             {
-                DefaultVisit(o);
+                DefaultVisit(visitable);
             }
         }
 
-        void DefaultVisit(object o)
+        public void Visit<T>(IVisitable visitable, T value)
         {
-            Debug.Log("DefaultVisit");
+            MethodInfo visitMethod = GetType().GetMethod("Visit", new Type[] { visitable.GetType(), typeof(T) });
+            if (visitMethod != null && visitMethod != GetType().GetMethod("Visit", new Type[] { typeof(IVisitable), typeof(T) }))
+            {
+                visitMethod.Invoke(this, new object[] { visitable, value });
+            }
+            else
+            {
+                DefaultVisit(visitable);
+            }
         }
-        
+
+        void DefaultVisit(IVisitable visitable)
+        {
+            Debug.Log("DefaultVisit: " + visitable.GetType().Name);
+        }
+
         public void Visit(MoneyBoxController moneyBoxController)
         {
             moneyBoxController.UpdateText();
+        }
+
+        public void Visit(MoneyBoxController moneyBoxController, int amount)
+        {
+            moneyBoxController.AddMoney(amount);
+            Debug.Log($"Added {amount} money. New balance: {moneyBoxController.Money}");
         }
     }
 }
