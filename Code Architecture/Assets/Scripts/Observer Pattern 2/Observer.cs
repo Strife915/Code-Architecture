@@ -1,6 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Reflection;
+
+#if UNITY_EDITOR
+using UnityEditor.Events;
+#endif
 
 namespace CodeArchitecture.Observer_2
 {
@@ -9,6 +14,7 @@ namespace CodeArchitecture.Observer_2
     {
         [SerializeField] T _value;
         [SerializeField] UnityEvent<T> _onValueChanged;
+        public static implicit operator T(Observer<T> observer) => observer._value;
 
         public T Value
         {
@@ -41,6 +47,9 @@ namespace CodeArchitecture.Observer_2
             if (callback == null) return;
             if (_onValueChanged == null) _onValueChanged = new UnityEvent<T>();
 
+#if UNITY_EDITOR
+            UnityEventTools.AddPersistentListener(_onValueChanged, callback);
+#endif
             _onValueChanged.AddListener(callback);
         }
 
@@ -48,14 +57,22 @@ namespace CodeArchitecture.Observer_2
         {
             if (callback == null) return;
             if (_onValueChanged == null) return;
-
+#if UNITYEDITOR
+        UnityEventTools.RemovePersistentListener(_onValueChanged, callback);
+#endif
             _onValueChanged.RemoveListener(callback);
         }
 
         public void RemoveAllListeners()
         {
             if (_onValueChanged == null) return;
+#if UNITY_EDITOR
+            FieldInfo fieldInfo = typeof(UnityEventBase).GetField("m_PersistentCalls", BindingFlags.Instance | BindingFlags.NonPublic);
+            object obj = fieldInfo.GetValue(_onValueChanged);
+            obj.GetType().GetMethod("Clear").Invoke(obj, null);
+#else
             _onValueChanged.RemoveAllListeners();
+#endif
         }
 
         public void Dispose()

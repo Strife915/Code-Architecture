@@ -11,6 +11,12 @@ namespace CodeArchitecture.Observer_2
         {
             Health.Invoke();
             IsAlieve.Invoke();
+
+            int ex1 = Health.Value;
+            int ex2 = Health;
+
+            Debug.Log(Equals(ex1, ex2));
+            Debug.Log(Health);
         }
 
         void Update()
