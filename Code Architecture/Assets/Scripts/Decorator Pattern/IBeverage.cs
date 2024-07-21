@@ -4,5 +4,7 @@ namespace CodeArchitecture.Decorator
     {
         string GetDescription();
         double GetCost();
+        void SetSize();
+        void GetSize();
     }
 }

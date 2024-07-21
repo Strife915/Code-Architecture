@@ -805,8 +805,9 @@ GameObject:
   - component: {fileID: 1180498200}
   - component: {fileID: 1180498199}
   - component: {fileID: 1180498198}
+  - component: {fileID: 1180498202}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Coffe Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -902,6 +903,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1180498202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180498197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac23b751980c491b9dc3eb14b5b457f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orderButton: {fileID: 1570246058}
+  _houseBlendButton: {fileID: 423314906}
+  _espressoButton: {fileID: 2137515780}
+  _mochaButton: {fileID: 1881842191}
+  _soyButton: {fileID: 2094465703}
+  _whipsButton: {fileID: 981808648}
+  _brewedBeverageText: {fileID: 1967129338}
+  _costText: {fileID: 1868256220}
 --- !u!1 &1258505617
 GameObject:
   m_ObjectHideFlags: 0

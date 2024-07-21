@@ -11,5 +11,13 @@
         {
             return 1.99;
         }
+
+        public void SetSize()
+        {
+        }
+
+        public void GetSize()
+        {
+        }
     }
 }

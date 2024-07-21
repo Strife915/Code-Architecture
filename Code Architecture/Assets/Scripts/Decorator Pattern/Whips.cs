@@ -18,5 +18,13 @@
         {
             return _beverage.GetCost() + 0.10;
         }
+
+        public void SetSize()
+        {
+        }
+
+        public void GetSize()
+        {
+        }
     }
 }
