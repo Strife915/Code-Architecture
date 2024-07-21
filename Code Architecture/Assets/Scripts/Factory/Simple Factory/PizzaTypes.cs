@@ -7,4 +7,10 @@ namespace CodeArchitecture.SimpleFactory
         Clam,
         Veggie
     }
+
+    public enum PizzaStoreTypes
+    {
+        Nyc,
+        Chicago
+    }
 }
