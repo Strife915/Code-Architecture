@@ -1,11 +1,11 @@
-﻿using CodeArchitecture.SimpleFactory;
+﻿using CodeArchitecture.Enums;
+using CodeArchitecture.SimpleFactory;
 
 namespace CodeArchitecture.FactoryMethod
 {
     public class NyPizzaStore : PizzaStore
     {
-        public override IPizza CreatePizza(PizzaTypes type)
-        {
+        public override IPizza CreatePizza(PizzaTypes type) {
             return type switch
             {
                 PizzaTypes.Cheese => new NycCheesePizza(),

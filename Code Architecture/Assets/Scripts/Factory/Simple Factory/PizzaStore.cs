@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CodeArchitecture.Enums;
+using UnityEngine;
 
 namespace CodeArchitecture.SimpleFactory
 {

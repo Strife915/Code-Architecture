@@ -1,4 +1,4 @@
-namespace CodeArchitecture.SimpleFactory
+namespace CodeArchitecture.Enums
 {
     public enum PizzaTypes
     {

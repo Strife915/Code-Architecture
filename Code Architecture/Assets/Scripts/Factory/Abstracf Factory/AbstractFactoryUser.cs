@@ -1,10 +1,10 @@
-﻿using CodeArchitecture.Enums;
+using CodeArchitecture.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CodeArchitecture.FactoryMethod
+namespace CodeArchitecture.Abstract.Factory
 {
-    public class PizzaStoreClient : MonoBehaviour
+    public class AbstractFactoryUser : MonoBehaviour
     {
         [SerializeField] PizzaStoreTypes _currentStoreType;
 
@@ -12,9 +12,9 @@ namespace CodeArchitecture.FactoryMethod
         void OrderPizza(PizzaTypes pizzaType) {
             IPizzaStore pizzaStore = _currentStoreType switch
             {
-                PizzaStoreTypes.Nyc => new NyPizzaStore(),
+                PizzaStoreTypes.Nyc => new NycPizzaStore(),
                 PizzaStoreTypes.Chicago => new ChicagoPizzaStore(),
-                _ => new NyPizzaStore()
+                _ => new NycPizzaStore()
             };
 
             pizzaStore.OrderPizza(pizzaType);
