@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5526599589927976919}
   - component: {fileID: 6878499430205984998}
   - component: {fileID: 7647791098942170280}
+  - component: {fileID: 3197496059190547018}
   m_Layer: 5
   m_Name: Off Button
   m_TagString: Untagged
@@ -121,6 +122,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3197496059190547018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095477551436528107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4893176026c42caa33153ea49f461b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5603525806102329226
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,8 +320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _labelText: {fileID: 8627113060982983904}
-  _onButton: {fileID: 6800888723449085259}
-  _offButton: {fileID: 7647791098942170280}
 --- !u!1 &7917744195795183519
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +600,7 @@ GameObject:
   - component: {fileID: 2912589683219466194}
   - component: {fileID: 8045835298002287999}
   - component: {fileID: 6800888723449085259}
+  - component: {fileID: 6329463721972810076}
   m_Layer: 5
   m_Name: On Button
   m_TagString: Untagged
@@ -698,3 +710,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6329463721972810076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260737856462661123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc588a5e17314f5e83ddc6cb927877e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

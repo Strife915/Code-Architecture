@@ -1,18 +1,23 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace CodeArchitecture.Command
 {
     public class RemoteControlSlotObject : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI _labelText;
-        [SerializeField] Button _onButton, _offButton;
+        OnButton _onButton;
+        OffButton _offButton;
+
+        void Awake() {
+            _onButton = GetComponentInChildren<OnButton>();
+            _offButton = GetComponentInChildren<OffButton>();
+        }
 
         public void SetCommand(ICommand onCommand, ICommand offCommand, string label) {
             _labelText.text = label;
-            _onButton.onClick.AddListener(onCommand.Execute);
-            _offButton.onClick.AddListener(offCommand.Execute);
+            _onButton.SetOnCommand(onCommand);
+            _offButton.SetOffCommand(offCommand);
         }
     }
 }

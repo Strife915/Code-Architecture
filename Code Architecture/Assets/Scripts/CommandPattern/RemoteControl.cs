@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace CodeArchitecture.Command
 {
@@ -8,7 +9,6 @@ namespace CodeArchitecture.Command
         ICommand[] _onCommands;
         ICommand[] _offCommands;
         IDisplayElement[] _displayElements;
-        ICommand _undoCommand;
         ICommand _noCommand;
 
         void Awake() {
@@ -31,7 +31,6 @@ namespace CodeArchitecture.Command
                 kitchenLight
             };
             _noCommand = new NoCommand();
-            _undoCommand = _noCommand;
             SetSlots();
         }
 
