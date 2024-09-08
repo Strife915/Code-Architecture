@@ -7,6 +7,14 @@ namespace CodeArchitecture.Template
         public abstract void Brew();
         public abstract void AddCondiments();
 
+        public void PrepareRecipe() {
+            BoilWater();
+            Brew();
+            PourInCup();
+            if (CustomerWantsCondiments())
+                AddCondiments();
+        }
+
         void BoilWater() {
             Debug.Log("Boiling water");
         }

@@ -2,21 +2,21 @@
 
 namespace CodeArchitecture.Template
 {
-    public class CoffeeWithHook : CaffeinBeberageWithHook
+    public class TeaWithHook : CaffeinBeberageWithHook
     {
         public override void Brew() {
-            Debug.Log("Dripping coffee through filter");
+            Debug.Log("Steeping the tea");
         }
 
         public override void AddCondiments() {
-            Debug.Log("Adding sugar and milk");
+            Debug.Log("Adding lemon");
         }
 
         public override bool CustomerWantsCondiments() {
             int rand = Random.Range(0, 2);
             if (rand == 0)
             {
-                Debug.Log("Customer adding coffee condiments");
+                Debug.Log("Customer adds tea condiments");
                 return true;
             }
 
