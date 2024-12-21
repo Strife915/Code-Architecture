@@ -2,7 +2,7 @@
 
 namespace CodeArchitecture.Iterator
 {
-    public class PancakeHouseMenu
+    public class PancakeHouseMenu : IMenu
     {
         List<MenuItem> _menuItems;
 

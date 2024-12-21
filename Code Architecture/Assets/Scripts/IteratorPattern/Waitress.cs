@@ -4,8 +4,8 @@ namespace CodeArchitecture.Iterator
 {
     public class Waitress : MonoBehaviour
     {
-        PancakeHouseMenu _pancakeHouseMenu;
-        DinerMenu _dinerMenu;
+        IMenu _pancakeHouseMenu;
+        IMenu _dinerMenu;
 
         public Waitress() {
             _pancakeHouseMenu = new PancakeHouseMenu();

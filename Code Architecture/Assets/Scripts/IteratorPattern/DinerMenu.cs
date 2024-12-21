@@ -1,6 +1,6 @@
 ﻿namespace CodeArchitecture.Iterator
 {
-    public class DinerMenu
+    public class DinerMenu : IMenu
     {
         const int MAX_ITEMS = 6;
         int _numberOfItems = 0;
